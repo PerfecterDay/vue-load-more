@@ -11959,9 +11959,11 @@ var render = function() {
             _c(
               "td",
               [
-                _c("router-link", { attrs: { to: "/detail/${item.id}" } }, [
-                  _c("h2", [_vm._v(_vm._s(item.title))])
-                ]),
+                _c(
+                  "router-link",
+                  { attrs: { to: "/detail/5433d5e4e737cbe96dcef312" } },
+                  [_c("h2", [_vm._v(_vm._s(item.title))])]
+                ),
                 _vm._v(" "),
                 _c("br"),
                 _vm._v(" "),
@@ -12073,8 +12075,6 @@ if (false) {(function () {
 //
 //
 //
-//
-//
 
 /* harmony default export */ __webpack_exports__["a"] = ({
     data() {
@@ -12083,21 +12083,22 @@ if (false) {(function () {
         }
     },
 
-    created : function(){
+    created:function(){
     	this.getDetail();
     },
+
     methods: {
         getDetail: function() {
             var ajax = new XMLHttpRequest();
-            ajax.open('GET', 'https://cnodejs.org/api/v1/topic/' + this.$route.params.id);
+            ajax.open('GET', 'https://cnodejs.org/api/v1/topic/'+this.$route.params.id);
             ajax.send();
             var vm = this;
             ajax.onreadystatechange = function() {
                 if (ajax.readyState == 4 && ajax.status == 200) {
                     var obj = JSON.parse(ajax.responseText);
-                    var data = obj.data;
-                    var content = data.content;
-                    vm.content = content;
+                   	var data = obj.data;
+                   	var content = data.content;
+                   	vm.content = content;
                 }
             }
         }
@@ -12114,9 +12115,7 @@ var render = function() {
   var _vm = this
   var _h = _vm.$createElement
   var _c = _vm._self._c || _h
-  return _c("div", { staticClass: "container" }, [
-    _c("p", { domProps: { innerHTML: _vm._s(_vm.content) } })
-  ])
+  return _c("p", { domProps: { innerHTML: _vm._s(_vm.content) } })
 }
 var staticRenderFns = []
 render._withStripped = true

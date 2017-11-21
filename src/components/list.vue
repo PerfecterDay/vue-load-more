@@ -5,7 +5,7 @@
                 <tr v-for="item in list">
                     <td><img v-bind:src="item.author.avatar_url"></td>
                     <td>
-                        <router-link to="/detail">
+                        <router-link to="/detail/5433d5e4e737cbe96dcef312">
                             <h2>{{item.title}}</h2>
                         </router-link>
                         <br>
