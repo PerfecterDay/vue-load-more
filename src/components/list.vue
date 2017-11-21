@@ -1,26 +1,37 @@
 <template>
-    <ol>
-        <li v-for="item in list">
-            <img v-bind:src="item.author.avatar_url"> 
-            <h2>{{item.title}}</h2>
-            <br> By:{{item.author.loginname}}
-        </li>
-    </ol>
+    <div>
+        <table class="table table-hover">
+            <tbody>
+                <tr v-for="item in list">
+                    <td><img v-bind:src="item.author.avatar_url"></td>
+                    <td>
+                        <router-link to="/detail">
+                            <h2>{{item.title}}</h2>
+                        </router-link>
+                        <br>
+                        <p>By:{{item.author.loginname}}</p>
+                    </td>
+                    <td></td>
+                </tr>
+            </tbody>
+        </table>
+        <button @click="next">Go next</button>
+        <div>CurrentPage:{{page}}</div>
+    </div>
 </template>
 <script type="text/javascript">
 export default {
     data() {
         return {
             list: [],
-            limit: 10
+            limit: 10,
+            page: 1
         }
     },
 
     created: function() {
         this.getList();
     },
-    props: ['page'],
-
     methods: {
         getList: function() {
             var ajax = new XMLHttpRequest();
@@ -34,6 +45,9 @@ export default {
                     vm.list = content;
                 }
             }
+        },
+        next: function() {
+            this.page += 1;
         }
     },
 
@@ -46,21 +60,8 @@ export default {
 }
 </script>
 <style type="text/css" scoped>
-ol {
-    margin-left: 2rem;
-    list-style: outside decimal;
-    padding: 0;
-}
-
-li {
-    border-top: 1px solid;
-    vertical-align: baseline;
-    height: 125px;
-}
-
 img {
     width: 120px;
     height: 120px;
-    float: left;
 }
 </style>
