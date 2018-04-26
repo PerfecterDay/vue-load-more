@@ -1,6 +1,6 @@
 var path = require('path');
 module.exports = {
-    entry: './app.js',
+    entry: './main.js',
     output: {
         path: __dirname + '/dist',
         // publicPath: 'dist/',

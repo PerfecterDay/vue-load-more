@@ -16,7 +16,7 @@ export default {
     methods: {
         getDetail: function() {
             var ajax = new XMLHttpRequest();
-            ajax.open('GET', 'https://cnodejs.org/api/v1/topic/'+this.$route.params.id);
+            ajax.open('GET', 'https://cnodejs.org/api/v1/topic/'+this.$route.query.id);
             ajax.send();
             var vm = this;
             ajax.onreadystatechange = function() {

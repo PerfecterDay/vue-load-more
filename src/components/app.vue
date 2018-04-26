@@ -4,12 +4,13 @@
     </div>
 </template>
 <script type="text/javascript">
-import list from "components/list.vue"
-export default {
-    data() {
-        return {
+	// import list from './list.vue'
+    export default {
+        data() {
+            return {
 
+            }
         }
+        // components:{list}
     }
-}
 </script>
